@@ -1,6 +1,9 @@
 "Sistem Inventori Toko Online"
+
 Kelompok 5-SA02
+
 Aplikasi inventory sederhana menggunakan Java OOP dan Swing.
+
 Fitur: 
 1. Menambahkan Produk
 2. Update harga
