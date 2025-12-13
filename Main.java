@@ -1,11 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        Produk p1 = new Produk();
-        p1.kode = "P01";
-        p1.nama = "Laptop";
-        p1.stok = 5;
-        p1.harga = 8000000;
+        Inventory inv = new Inventory();
 
-        p1.tampilInfo();
+        Product p1 = new Product("Laptop", 8000000, 5, "Elektronik");
+        Product p2 = new Product("Jaket", 250000, 1, "Pakaian");
+
+        inv.addProduct(p1);
+        inv.addProduct(p2);
+
+        inv.updatePrice("Laptop", 7500000);
+
+        try {
+            inv.reduceStock("Jaket", 2);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        inv.showAll();
     }
 }
