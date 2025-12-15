@@ -1,23 +1,26 @@
 package backend;
+
 public class Main {
     public static void main(String[] args) {
-        Inventory inv = new Inventory();
 
-        Product p1 = new Product("Laptop", 8000000, 5, "Elektronik");
-        Product p2 = new Product("Jaket", 250000, 1, "Pakaian");
+        Inventori inv = new Inventori();
 
-        inv.addProduct(p1);
-        inv.addProduct(p2);
+        Produk laptop = new Elektronik("Laptop", 8000000, 5);
+        Produk jaket = new Pakaian("Jaket", 250000, 1);
 
-        inv.updatePrice("Laptop", 7500000);
+        inv.tambahProduk(laptop);
+        inv.tambahProduk(jaket);
+
+        inv.updateHarga("Laptop", 7500000);
 
         try {
-            inv.reduceStock("Jaket", 2);
-        } catch (Exception e) {
+            inv.kurangiStok("Jaket", 2);
+        } catch (StokHabisException e) {
             System.out.println(e.getMessage());
         }
 
-        inv.showAll();
+        inv.tampilkanSemua();
     }
 }
+
 
