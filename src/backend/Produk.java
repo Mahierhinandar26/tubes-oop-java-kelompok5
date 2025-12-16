@@ -1,40 +1,26 @@
 package backend;
 
 public class Produk {
-    protected String nama;
-    protected double harga;
-    protected int stok;
+    // Atribut class Produk
+    protected int id;            // ID unik produk
+    protected String nama;       // Nama produk
+    protected double harga;      // Harga satuan
+    protected int stok;         // Jumlah stok tersedia
+    protected String kategori;   // Kategori produk
 
-    public Produk(String nama, double harga, int stok) {
+    // Constructor untuk inisialisasi produk baru
+    public Produk(String nama, double harga, int stok, String kategori) {
         this.nama = nama;
         this.harga = harga;
         this.stok = stok;
+        this.kategori = kategori;
+        // Note: ID akan di-set oleh Inventori saat ditambahkan
     }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public double getHarga() {
-        return harga;
-    }
-
-    public int getStok() {
-        return stok;
-    }
-
-    public void setHarga(double harga) {
-        this.harga = harga;
-    }
-
-    public void kurangiStok(int jumlah) throws StokHabisException {
-        if (stok < jumlah) {
-            throw new StokHabisException("Stok habis!");
-        }
-        stok -= jumlah;
-    }
-
+    
+    // Method untuk menampilkan informasi produk
     public void info() {
-        System.out.println(nama + " | Harga: " + harga + " | Stok: " + stok);
+        // Format output: "Nama | Kategori | RpX,XXX,XXX | Stok: XX"
+        System.out.printf("%s | %s | Rp%,.0f | Stok: %d%n", 
+            nama, kategori, harga, stok);
     }
 }
