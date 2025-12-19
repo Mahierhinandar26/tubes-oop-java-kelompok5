@@ -1,4 +1,9 @@
 package gui;
+import backend.Elektronik;
+import backend.Inventori;
+import backend.Pakaian;
+import backend.Produk;
+import backend.StokHabisException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -68,9 +73,10 @@ public class InventoryMainFrame extends JFrame {
             FormTambahProduk form = new FormTambahProduk();
             form.setVisible(true);
     });
-        btnUpdate.addActionListener(e ->
-            JOptionPane.showMessageDialog(this, "Form Update Produk")
-        );
+        btnUpdate.addActionListener(e -> {
+            FormUpdateHarga form = new FormUpdateHarga();
+            form.setVisible(true);
+    });
     }
 //Main method
 public static void main(String[]args){
