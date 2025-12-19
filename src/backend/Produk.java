@@ -1,44 +1,51 @@
 package backend;
 
-public class Produk {
-    protected int id;            // ID unik produk
-    protected String nama;       // Nama produk
-    protected double harga;      // Harga satuan
-    protected int stok;         // Jumlah stok tersedia
-    protected String kategori;   // Kategori produk
+public abstract class Produk {
 
-    // Constructor untuk inisialisasi produk baru
-    public Produk(String nama, double harga, int stok, String kategori) {
-        this.id = 0;  // ID default, akan di-set oleh Inventori
-        this.nama = nama;
-        this.harga = harga;
-        this.stok = stok;
-        this.kategori = kategori;
-    }
-    
-    // Constructor dengan ID (untuk testing)
-    public Produk(int id, String nama, double harga, int stok, String kategori) {
+    protected int id;
+    protected String nama;
+    protected double harga;
+    protected int stok;
+
+    public Produk(int id, String nama, double harga, int stok) {
         this.id = id;
         this.nama = nama;
         this.harga = harga;
         this.stok = stok;
-        this.kategori = kategori;
     }
-    
-    // Getter untuk ID
+
     public int getId() {
         return id;
     }
-    
-    // Setter untuk ID
-    public void setId(int id) {
-        this.id = id;
+
+    public String getNama() {
+        return nama;
     }
-    
-    // Method untuk menampilkan informasi produk dengan ID
-    public void info() {
-        // Format output: "ID. Nama | Kategori | RpX,XXX,XXX | Stok: XX"
-        System.out.printf("%d. %s | %s | Rp%,.0f | Stok: %d%n", 
-            id, nama, kategori, harga, stok);
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setHarga(double harga) {
+        this.harga = harga;
+    }
+
+    public void kurangiStok(int jumlah) throws StokHabisException {
+        if (stok < jumlah) {
+            throw new StokHabisException("Stok produk habis!");
+        }
+        stok -= jumlah;
+    }
+
+    public abstract String getKategori();
+
+    @Override
+    public String toString() {
+        return id + " | " + nama + " | " + getKategori() +
+               " | Harga: " + harga + " | Stok: " + stok;
     }
 }
