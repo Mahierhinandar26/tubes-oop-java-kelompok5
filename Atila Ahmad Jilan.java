@@ -1,5 +1,4 @@
-public class Main {
-    public static void main(String[] args) {
+public class Atila Ahmad Jilan{
+    public static void Atila Ahmad Jilan(String[] args) {
         System.out.println("Atila Ahmad Jilan 1324034");
     }
-}
