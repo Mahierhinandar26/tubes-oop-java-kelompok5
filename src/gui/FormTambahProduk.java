@@ -1,57 +1,79 @@
 package gui;
 
+import backend.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class FormTambahProduk extends JFrame {
+public class FormTambahProduk extends JDialog {
 
-    public FormTambahProduk() {
+    private Inventori inventori;
+    private InventoriFrame parent;
+
+    private JTextField txtId, txtNama, txtHarga, txtStok;
+    private JComboBox<String> cmbKategori;
+
+    public FormTambahProduk(InventoriFrame parent, Inventori inventori) {
+        this.parent = parent;
+        this.inventori = inventori;
+
         setTitle("Tambah Produk");
-        setSize(400, 250);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(350, 300);
+        setLocationRelativeTo(parent);
+        setModal(true);
+        setLayout(new BorderLayout());
 
-        JPanel panel = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        JPanel panel = new JPanel(new GridLayout(5, 2, 10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
-        // setting umum
-        gbc.insets = new Insets(8, 8, 8, 8); // jarak rapi
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel.add(new JLabel("ID"));
+        txtId = new JTextField();
+        panel.add(txtId);
 
-        // ===== Nama Produk =====
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        panel.add(new JLabel("Nama Produk"), gbc);
+        panel.add(new JLabel("Nama"));
+        txtNama = new JTextField();
+        panel.add(txtNama);
 
-        gbc.gridx = 1;
-        JTextField txtNama = new JTextField(15);
-        panel.add(txtNama, gbc);
+        panel.add(new JLabel("Kategori"));
+        cmbKategori = new JComboBox<>(new String[]{"Elektronik", "Pakaian"});
+        panel.add(cmbKategori);
 
-        // ===== Harga =====
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        panel.add(new JLabel("Harga"), gbc);
+        panel.add(new JLabel("Harga"));
+        txtHarga = new JTextField();
+        panel.add(txtHarga);
 
-        gbc.gridx = 1;
-        JTextField txtHarga = new JTextField(15);
-        panel.add(txtHarga, gbc);
+        panel.add(new JLabel("Stok"));
+        txtStok = new JTextField();
+        panel.add(txtStok);
 
-        // ===== Stok =====
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        panel.add(new JLabel("Stok"), gbc);
+        add(panel, BorderLayout.CENTER);
 
-        gbc.gridx = 1;
-        JTextField txtStok = new JTextField(15);
-        panel.add(txtStok, gbc);
-
-        // ===== Tombol Simpan =====
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        gbc.anchor = GridBagConstraints.EAST;
         JButton btnSimpan = new JButton("Simpan");
-        panel.add(btnSimpan, gbc);
+        btnSimpan.addActionListener(e -> simpanProduk());
 
-        add(panel);
+        JPanel panelBtn = new JPanel();
+        panelBtn.add(btnSimpan);
+
+        add(panelBtn, BorderLayout.SOUTH);
+    }
+
+    private void simpanProduk() {
+        try {
+            int id = Integer.parseInt(txtId.getText());
+            String nama = txtNama.getText();
+            double harga = Double.parseDouble(txtHarga.getText());
+            int stok = Integer.parseInt(txtStok.getText());
+
+            Produk p = cmbKategori.getSelectedItem().equals("Elektronik")
+                    ? new Elektronik(id, nama, harga, stok)
+                    : new Pakaian(id, nama, harga, stok);
+
+            inventori.tambahProduk(p);
+            parent.refreshTable();
+            dispose();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Input tidak valid");
+        }
     }
 }
+
