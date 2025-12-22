@@ -28,17 +28,23 @@ Aplikasi ini menyediakan beberapa fitur utama berikut:
 
 ## 📂 Struktur Repository
 
-```plaintext
-├── src/
-│   ├── (kode sumber Java)
-├── .gitignore
-├── Kelompok5_AtilaAhmadJilan.java
-├── Rochita.java
+tubes-oop-java-kelompok5
+├── src
+│   ├── backend
+│   │   ├── (class-class logika program)
+│   │   └── (model, service, atau controller)
+│   │
+│   ├── gui
+│   │   ├── (class tampilan / form Swing)
+│   │   └── (event handling GUI)
+│   │
+│   └── mainapp
+│       └── MainApp.java
+│
 ├── README.md
+├── .gitignore
+
 ```
-
----
-
 ## 🛠️ Teknologi & Tools
 
 📌 **Bahasa:**
@@ -86,13 +92,12 @@ Setelah aplikasi berjalan:
 
 ## 👥 Kontributor
 
-| Nama Anggota     | Peran     |
-| ---------------- | --------- |
-| Mahierhinandar26 | Developer |
-| Anggota 2        | Developer |
-| Anggota 3        | Developer |
+| Nama Anggota      |       Peran       |
+| ----------------  | ----------------- |
+| Mahier Mohammad H | Backend Developer |
+| Rochita Maulidina | GUI Developer     |
+| Atila Ahmad Jiln  | Testing            |
 
-*(Ubah tabel sesuai daftar anggota kamu)*
 
 ---
 
