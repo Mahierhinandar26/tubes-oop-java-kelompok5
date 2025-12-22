@@ -103,7 +103,7 @@ Setelah aplikasi berjalan:
 
 ## 📌 Catatan
 
-Proyek ini dibuat sebagai **Tugas Besar Mata Kuliah Pemrograman Berorientasi Objek** di kampus. Pastikan kamu memiliki setup JDK yang sesuai sebelum menjalankan. ([informatika.stei.itb.ac.id][1])
+Proyek ini dibuat sebagai **Tugas Besar Mata Kuliah Pemrograman Berorientasi Objek** di kampus. Pastikan kamu memiliki setup JDK yang sesuai sebelum menjalankan.
 
 ---
 
