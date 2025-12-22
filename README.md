@@ -1,3 +1,8 @@
+Siap 👍
+Berikut **README.md versi FINAL** yang **sudah digabung lengkap**: struktur repo (`backend`, `gui`, `mainapp`) **+ anggota & peran**.
+Tinggal **copy–paste seluruh isi ini ke file `README.md`** di repository GitHub kamu.
+
+---
 
 # 📦 Tubes OOP Java – Kelompok 5
 
@@ -24,6 +29,8 @@ Struktur proyek dipisahkan menjadi tiga bagian utama:
 ---
 
 ## 📂 Struktur Repository
+
+```plaintext
 tubes-oop-java-kelompok5
 ├── src
 │   ├── backend
@@ -122,11 +129,11 @@ public class MainApp {
 
 ## 👥 Anggota Kelompok
 
-| Nama                         | Peran   |
-| ---------------------------- | ------- |
-| **Mahier Mohammad Hinandar** | Backend |
-| **Rochita Maulidina**        | GUI     |
-| **Atila Ahmad Jilan**        | Testing |
+| Nama                         | Peran    |
+| ---------------------------- | -------  |
+| **Mahier Mohammad Hinandar** | Backend  |
+| **Rochita Maulidina**        | GUI      |
+| **Atila Ahmad Jilan**        | Integrasi|
 
 ---
 
@@ -142,5 +149,13 @@ public class MainApp {
 
 Proyek ini dibuat untuk **keperluan akademik** (Tugas Besar).
 
+---
+
+Kalau mau, aku bisa bantu:
+
+* ✨ Tambahin **penjelasan implementasi OOP per class**
+* 📊 Buatin **class diagram / activity diagram**
+* 🧪 Tambahin **bagian pengujian (testing) biar peran Atila makin kelihatan**
+* 🧑‍🏫 Versi README **lebih formal khusus dosen**
 
 Tinggal bilang aja mau yang mana 😉
